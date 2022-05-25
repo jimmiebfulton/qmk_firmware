@@ -1,13 +1,42 @@
 #include QMK_KEYBOARD_H
 
+#define QWERTY 0 // Base qwerty
+
+
+/****************************************************************************************************
+*
+* Keymap: Default Layer in Qwerty
+*
+* ,-------------------------------------------------------------------------------------------------------------------.
+* | Esc    |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F8  |  F9  |  F10 |  F12 | PSCR | SLCK | PAUS |  FN0 |  BOOT  |
+* |--------+------+------+------+------+------+---------------------------+------+------+------+------+------+--------|
+* | =+     |  1!  |  2@  |  3#  |  4$  |  5%  |                           |  6^  |  7&  |  8*  |  9(  |  0)  | -_     |
+* |--------+------+------+------+------+------|                           +------+------+------+------+------+--------|
+* | Tab    |   Q  |   W  |   E  |   R  |   T  |                           |   Y  |   U  |   I  |   O  |   P  | \|     |
+* |--------+------+------+------+------+------|                           |------+------+------+------+------+--------|
+* | Caps   |   A  |   S  |   D  |   F  |   G  |                           |   H  |   J  |   K  |   L  |  ;:  | '"     |
+* |--------+------+------+------+------+------|                           |------+------+------+------+------+--------|
+* | Shift  |   Z  |   X  |   C  |   V  |   B  |                           |   N  |   M  |  ,.  |  .>  |  /?  | Shift  |
+* `--------+------+------+------+------+-------                           `------+------+------+------+------+--------'
+*          | `~   | INS  | Left | Right|                                         | Up   | Down |  [{  |  ]}  |
+*          `---------------------------'                                         `---------------------------'
+*                                        ,-------------.         ,-------------.
+*                                        | Ctrl | Alt  |         | Gui  | Ctrl |
+*                                 ,------|------|------|         |------+------+------.
+*                                 |      |      | Home |         | PgUp |      |      |
+*                                 | BkSp | Del  |------|         |------|Return| Space|
+*                                 |      |      | End  |         | PgDn |      |      |
+*                                 `--------------------'         `--------------------'
+*/
+
 enum layer_codes {
-    QWE,
-    COL,
-    MED,
-    SYM,
-    NAV,
-    NUM,
-    OVL,
+    QUERTY,
+    COLEMAK,
+    MEDIA,
+    NAVIGATION,
+    SYMBOLS,
+    NUMBERS,
+    OVERLAY,
 };
 
 enum tap_dance_codes {
@@ -19,13 +48,91 @@ enum tap_dance_codes {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[QWE] = LAYOUT_pretty(KC_ESC, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_PSCR, KC_SLCK, KC_PAUS, TG(1), RESET, KC_EQL, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSLS, KC_ESC, LCTL_T(KC_A), LALT_T(KC_S), LSFT_T(KC_D), LGUI_T(KC_F), ALL_T(KC_G), ALL_T(KC_H), RGUI_T(KC_J), RSFT_T(KC_K), RALT_T(KC_L), RCTL_T(KC_SCLN), KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, MEH_T(KC_B), MEH_T(KC_N), KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, KC_GRV, LT(2,KC_INS), KC_LEFT, KC_RGHT, KC_UP, KC_DOWN, KC_LBRC, KC_RBRC, LM(6,KC_LGUI), KC_LALT, KC_RALT, LM(6,KC_RGUI), LT(5,KC_HOME), LT(5,KC_PGUP), LT(3,KC_BSPC), LT(4,KC_DEL), ALL_T(KC_END), ALL_T(KC_PGDN), LT(5,KC_ENT), LT(3,KC_SPC)),
-	[COL] = LAYOUT_pretty(KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, RESET, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_Q, KC_W, KC_F, KC_P, KC_G, KC_J, KC_L, KC_U, KC_Y, KC_SCLN, KC_TRNS, KC_TRNS, LCTL_T(KC_A), LALT_T(KC_R), LSFT_T(KC_S), LGUI_T(KC_T), ALL_T(KC_D), ALL_T(KC_H), RGUI_T(KC_N), RSFT_T(KC_E), RALT_T(KC_I), RCTL_T(KC_O), KC_TRNS, KC_TRNS, KC_Z, KC_X, KC_C, KC_V, MEH_T(KC_B), MEH_T(KC_K), KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
-	[MED] = LAYOUT_pretty(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, RESET, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_MRWD, KC_MPLY, KC_MFFD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_VOLD, KC_MUTE, KC_VOLU, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, LGUI(LCTL(LSFT(KC_3))), RGUI(RSFT(KC_3)), LGUI(LCTL(LSFT(KC_4))), RGUI(RSFT(KC_4)), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
-	[SYM] = LAYOUT_pretty(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, RESET, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_MINS, KC_PLUS, KC_EXLM, KC_EQL, KC_NO, KC_NO, KC_CIRC, KC_QUES, KC_DLR, KC_UNDS, KC_SCLN, KC_CAPS, KC_LBRC, KC_LT, KC_GT, KC_RBRC, KC_GRV, KC_TILD, KC_LCBR, KC_LPRN, KC_RPRN, KC_RCBR, KC_QUOT, KC_TRNS, KC_PERC, KC_ASTR, KC_HASH, KC_AT, KC_NO, KC_NO, KC_PIPE, KC_AMPR, KC_BSLS, KC_SLSH, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
-	[NAV] = LAYOUT_pretty(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, RESET, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_PGUP, KC_NO, KC_NO, KC_NO, KC_TRNS, LGUI(KC_Q), LGUI(KC_W), LGUI(KC_E), LGUI(KC_R), LGUI(KC_T), KC_NO, RGUI(KC_LBRC), KC_UP, RGUI(KC_RBRC), KC_NO, KC_NO, KC_TRNS, TD(DANCE_0), TD(DANCE_1), TD(DANCE_2), TD(DANCE_3), KC_HYPR, KC_NO, KC_LEFT, KC_DOWN, KC_RGHT, KC_NO, KC_NO, KC_TRNS, LGUI(KC_Z), LGUI(KC_X), LGUI(KC_C), LGUI(KC_V), KC_MEH, KC_NO, KC_HOME, KC_PGDN, KC_END, KC_NO, KC_NO, KC_NO, KC_NO, KC_ENT, KC_SPC, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
-	[NUM] = LAYOUT_pretty(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, RESET, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_F9, KC_F10, KC_F11, KC_F12, KC_NO, KC_PSLS, KC_P7, KC_P8, KC_P9, KC_PMNS, KC_NO, KC_TRNS, LCTL_T(KC_F5), LALT_T(KC_F6), LSFT_T(KC_F7), LGUI_T(KC_F8), KC_HYPR, ALL_T(KC_ASTR), RGUI_T(KC_P4), RSFT_T(KC_P5), RALT_T(KC_P6), TD(DANCE_4), KC_NO, KC_TRNS, KC_F1, KC_F2, KC_F3, KC_F4, KC_MEH, MEH_T(KC_PEQL), KC_P1, KC_P2, KC_P3, KC_ENT, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_P1, KC_NO, KC_PDOT, KC_ENT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
-	[OVL] = LAYOUT_pretty(KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_GRV, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS)
+
+  [QWERTY] = LAYOUT_pretty(
+    KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,         KC_F9,    KC_F10,   KC_F11,   KC_F12,   KC_PSCR,  KC_SLCK,  KC_PAUS,  KC_NO,    RESET,
+    KC_EQL,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                                                                      KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,
+    KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                                                                      KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSLS,
+    KC_ESC,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,                                                                      KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
+    KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,                                                                      KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,
+              KC_GRV,   KC_INS,   KC_LEFT,  KC_RGHT,                                                                                       KC_UP,    KC_DOWN,  KC_LBRC,  KC_RBRC,
+                                         LM(OVERLAY,MOD_LGUI),  KC_LALT,                                               KC_RALT,  LM(OVERLAY,MOD_RGUI),
+                                                    LT(NUMBERS,KC_HOME),                                               LT(NUMBERS,KC_PGUP),
+                  LT(SYMBOLS,KC_BSPC),  LT(NAVIGATION,KC_DEL),   KC_END,                                               KC_PGDN,  LT(NUMBERS,KC_ENTER), LT(SYMBOLS,KC_SPC)
+  ),
+
+  [COLEMAK] = LAYOUT_pretty(
+    KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,         KC_F9,    KC_F10,   KC_F11,   KC_F12,   KC_PSCR,  KC_SLCK,  KC_PAUS,  KC_NO,    RESET,
+    KC_EQL,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                                                                      KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,
+    KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                                                                      KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSLS,
+    KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,                                                                      KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
+    KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,                                                                      KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,
+              KC_GRV,   KC_INS,   KC_LEFT,  KC_RGHT,                                                                                       KC_UP,    KC_DOWN,  KC_LBRC,  KC_RBRC,
+                                                      KC_TRANSPARENT,  KC_TRANSPARENT,                                               KC_TRANSPARENT,  KC_TRANSPARENT,
+                                                                KC_TRANSPARENT,                                               KC_TRANSPARENT,
+                                            KC_TRANSPARENT,  KC_TRANSPARENT,   KC_TRANSPARENT,                                                KC_TRANSPARENT,  KC_TRANSPARENT, KC_TRANSPARENT
+  ),
+
+  [MEDIA] = LAYOUT_pretty(
+    KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,         KC_F9,    KC_F10,   KC_F11,   KC_F12,   KC_PSCR,  KC_SLCK,  KC_PAUS,  KC_NO,    RESET,
+    KC_EQL,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                                                                      KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,
+    KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                                                                      KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSLS,
+    KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,                                                                      KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
+    KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,                                                                      KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,
+              KC_GRV,   KC_INS,   KC_LEFT,  KC_RGHT,                                                                                       KC_UP,    KC_DOWN,  KC_LBRC,  KC_RBRC,
+                                                      KC_TRANSPARENT,  KC_TRANSPARENT,                                               KC_TRANSPARENT,  KC_TRANSPARENT,
+                                                                KC_TRANSPARENT,                                               KC_TRANSPARENT,
+                                            KC_TRANSPARENT,  KC_TRANSPARENT,   KC_TRANSPARENT,                                                KC_TRANSPARENT,  KC_TRANSPARENT, KC_TRANSPARENT
+  ),
+
+  [NAVIGATION] = LAYOUT_pretty(
+    KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,         KC_F9,    KC_F10,   KC_F11,   KC_F12,   KC_PSCR,  KC_SLCK,  KC_PAUS,  KC_NO,    RESET,
+    KC_EQL,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                                                                      KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,
+    KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                                                                      KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSLS,
+    KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,                                                                      KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
+    KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,                                                                      KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,
+              KC_GRV,   KC_INS,   KC_LEFT,  KC_RGHT,                                                                                       KC_UP,    KC_DOWN,  KC_LBRC,  KC_RBRC,
+                                                      KC_TRANSPARENT,  KC_TRANSPARENT,                                               KC_TRANSPARENT,  KC_TRANSPARENT,
+                                                                KC_TRANSPARENT,                                               KC_TRANSPARENT,
+                                            KC_TRANSPARENT,  KC_TRANSPARENT,   KC_TRANSPARENT,                                                KC_TRANSPARENT,  KC_TRANSPARENT, KC_TRANSPARENT
+  ),
+
+  [SYMBOLS] = LAYOUT_pretty(
+    KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,         KC_F9,    KC_F10,   KC_F11,   KC_F12,   KC_PSCR,  KC_SLCK,  KC_PAUS,  KC_NO,    RESET,
+    KC_EQL,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                                                                      KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,
+    KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                                                                      KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSLS,
+    KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,                                                                      KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
+    KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,                                                                      KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,
+              KC_GRV,   KC_INS,   KC_LEFT,  KC_RGHT,                                                                                       KC_UP,    KC_DOWN,  KC_LBRC,  KC_RBRC,
+                                                      KC_TRANSPARENT,  KC_TRANSPARENT,                                               KC_TRANSPARENT,  KC_TRANSPARENT,
+                                                                KC_TRANSPARENT,                                               KC_TRANSPARENT,
+                                            KC_TRANSPARENT,  KC_TRANSPARENT,   KC_TRANSPARENT,                                                KC_TRANSPARENT,  KC_TRANSPARENT, KC_TRANSPARENT
+  ),
+
+  [NUMBERS] = LAYOUT_pretty(
+    KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,         KC_F9,    KC_F10,   KC_F11,   KC_F12,   KC_PSCR,  KC_SLCK,  KC_PAUS,  KC_NO,    RESET,
+    KC_EQL,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                                                                      KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,
+    KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                                                                      KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSLS,
+    KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,                                                                      KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
+    KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,                                                                      KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,
+              KC_GRV,   KC_INS,   KC_LEFT,  KC_RGHT,                                                                                       KC_UP,    KC_DOWN,  KC_LBRC,  KC_RBRC,
+                                                      KC_TRANSPARENT,  KC_TRANSPARENT,                                               KC_TRANSPARENT,  KC_TRANSPARENT,
+                                                                KC_TRANSPARENT,                                               KC_TRANSPARENT,
+                                            KC_TRANSPARENT,  KC_TRANSPARENT,   KC_TRANSPARENT,                                                KC_TRANSPARENT,  KC_TRANSPARENT, KC_TRANSPARENT
+  ),
+
+  [OVERLAY] = LAYOUT_pretty(
+    KC_TRANSPARENT,   KC_TRANSPARENT,    KC_TRANSPARENT,    KC_TRANSPARENT,    KC_TRANSPARENT,    KC_TRANSPARENT,    KC_TRANSPARENT,    KC_TRANSPARENT,    KC_TRANSPARENT,         KC_TRANSPARENT,    KC_TRANSPARENT,   KC_TRANSPARENT,   KC_TRANSPARENT,   KC_TRANSPARENT,  KC_TRANSPARENT,  KC_TRANSPARENT,  KC_TRANSPARENT,    RESET,
+    KC_TRANSPARENT,   KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,                                                                 KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,
+    KC_TRANSPARENT,   KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,                                                                 KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,
+    KC_GRV,           KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,                                                                  KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,  KC_TRANSPARENT,
+    KC_TRANSPARENT,  KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,                                                                  KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,  KC_TRANSPARENT,   KC_TRANSPARENT,  KC_TRANSPARENT,
+              KC_TRANSPARENT,   KC_TRANSPARENT,   KC_TRANSPARENT,  KC_TRANSPARENT,                                                                                       KC_TRANSPARENT,    KC_TRANSPARENT,  KC_TRANSPARENT,  KC_TRANSPARENT,
+                                                      KC_TRANSPARENT,  KC_TRANSPARENT,                                               KC_TRANSPARENT,  KC_TRANSPARENT,
+                                                                KC_TRANSPARENT,                                               KC_TRANSPARENT,
+                                            KC_TRANSPARENT,  KC_TRANSPARENT,   KC_TRANSPARENT,                                                KC_TRANSPARENT,  KC_TRANSPARENT, KC_TRANSPARENT
+  ),
+
 };
 
 typedef struct {
@@ -236,10 +343,9 @@ void dance_4_reset(qk_tap_dance_state_t *state, void *user_data) {
 }
 
 qk_tap_dance_action_t tap_dance_actions[] = {
-        [DANCE_0] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_0, dance_0_finished, dance_0_reset),
-        [DANCE_1] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_1, dance_1_finished, dance_1_reset),
-        [DANCE_2] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_2, dance_2_finished, dance_2_reset),
-        [DANCE_3] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_3, dance_3_finished, dance_3_reset),
-        [DANCE_4] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_4, dance_4_finished, dance_4_reset),
+    [DANCE_0] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_0, dance_0_finished, dance_0_reset),
+    [DANCE_1] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_1, dance_1_finished, dance_1_reset),
+    [DANCE_2] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_2, dance_2_finished, dance_2_reset),
+    [DANCE_3] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_3, dance_3_finished, dance_3_reset),
+    [DANCE_4] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_4, dance_4_finished, dance_4_reset),
 };
-
