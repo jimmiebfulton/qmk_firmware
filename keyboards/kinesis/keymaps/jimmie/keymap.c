@@ -54,9 +54,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,MT(MOD_LCTL,KC_A),MT(MOD_LALT,KC_S),MT(MOD_LSFT,KC_D),MT(MOD_LGUI,KC_F),ALL_T(KC_G),                                                                                                ALL_T(KC_H),MT(MOD_RGUI, KC_J),MT(MOD_RSFT, KC_K),MT(MOD_RALT, KC_L),MT(MOD_RCTL, KC_SCOLON),KC_QUOTE,
     KC_LSFT,        KC_Z,           KC_X,     KC_C,     KC_V,     KC_B,                                                                                                                                     KC_N,           KC_M,           KC_COMM,        KC_DOT,         KC_SLSH,        KC_RSFT,
                     KC_GRV,         LT(MEDIA,KC_INS),KC_LEFT,      KC_RGHT,                                                                                                                                                  KC_UP,          KC_DOWN,        KC_LBRC,        KC_RBRC,
-                                                                                                                    KC_LGUI,      KC_LALT,                  KC_RALT,        KC_RGUI,
-                                                                                                                      LT(NUMBERS,KC_HOME),                  LT(NUMBERS,KC_PGUP),
-                                                                             LT(SYMBOLS,KC_BSPC),  LT(NAVIGATION,KC_DEL),   ALL_T(KC_END),                  ALL_T(KC_PGDN),  LT(NUMBERS,KC_ENTER), LT(SYMBOLS,KC_SPC)
+                                                                                                                    KC_LGUI,              KC_LALT,          KC_RALT,        KC_RGUI,
+                                                                                                                               LT(NUMBERS,KC_HOME),         LT(NUMBERS,KC_PGUP),
+                                                                                      LT(SYMBOLS,KC_BSPC),  LT(NAVIGATION,KC_DEL),   ALL_T(KC_END),         ALL_T(KC_PGDN),  LT(NUMBERS,KC_ENTER), LT(SYMBOLS,KC_SPC)
   ),
 
   [COLEMAK] = LAYOUT_pretty(
@@ -66,9 +66,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_A,           KC_R,           KC_S,           KC_T,           KC_D,                                                                                                                   KC_N,           KC_N,           KC_E,           KC_I,           KC_O,           KC_QUOT,
     KC_TRANSPARENT, KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                                                                                                   KC_N,           KC_M,           KC_COMM,        KC_DOT,         KC_SLSH,        KC_RSFT,
                     KC_GRV,         KC_INS,         KC_LEFT,        KC_RGHT,                                                                                                                                                 KC_UP,          KC_DOWN,        KC_LBRC,        KC_RBRC,
-                                                                                                                    KC_TRANSPARENT,  KC_TRANSPARENT,        KC_TRANSPARENT,  KC_TRANSPARENT,
-                                                                                                                                     KC_TRANSPARENT,        KC_TRANSPARENT,
-                                                                                                  KC_TRANSPARENT,  KC_TRANSPARENT,   KC_TRANSPARENT,        KC_TRANSPARENT,  KC_TRANSPARENT, KC_TRANSPARENT
+                                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT,        KC_TRANSPARENT, KC_TRANSPARENT,
+                                                                                                                                    KC_TRANSPARENT,        KC_TRANSPARENT,
+                                                                                                  KC_TRANSPARENT,  KC_TRANSPARENT,  KC_TRANSPARENT,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
 
   [MEDIA] = LAYOUT_pretty(
@@ -78,9 +78,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                         KC_TRANSPARENT, KC_MPRV,        KC_MPLY,        KC_MNXT,        KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                         KC_TRANSPARENT, KC_VOLD,        KC_MUTE,        KC_VOLU,        KC_TRANSPARENT, KC_TRANSPARENT,
                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                                                         SCRSHT_CB,      SCRSHT_FI,      SLTSHT_CB,      SLTSHT_FI,
-                                                                                                                    KC_TRANSPARENT,  KC_TRANSPARENT,        KC_TRANSPARENT,  KC_TRANSPARENT,
-                                                                                                                                     KC_TRANSPARENT,        KC_TRANSPARENT,
-                                                                                                  KC_TRANSPARENT,  KC_TRANSPARENT,   KC_TRANSPARENT,        KC_TRANSPARENT,  KC_TRANSPARENT, KC_TRANSPARENT
+                                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT,        KC_TRANSPARENT, KC_TRANSPARENT,
+                                                                                                                                    KC_TRANSPARENT,        KC_TRANSPARENT,
+                                                                                                  KC_TRANSPARENT,  KC_TRANSPARENT,  KC_TRANSPARENT,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
 
   [NAVIGATION] = LAYOUT_pretty(
@@ -90,9 +90,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_LCTL,        KC_LALT,        KC_LSFT,        KC_LGUI,        KC_HYPR,                                                                                                                KC_TRANSPARENT, KC_LEFT,         KC_DOWN,       KC_RIGHT,       KC_TRANSPARENT,  KC_TRANSPARENT,
     KC_TRANSPARENT, LGUI(KC_Z),     LGUI(KC_X),     LGUI(KC_C),     LGUI(KC_V),     KC_MEH,                                                                                                                 KC_TRANSPARENT, KC_HOME,         KC_PGDOWN,     KC_END,         KC_TRANSPARENT,  KC_TRANSPARENT,
                     KC_NO,          KC_NO,          KC_ENTER,       KC_SPC,                                                                                                    KC_NO,             KC_NO,            KC_NO,             KC_NO,
-                                                                                                                    KC_TRANSPARENT,  KC_TRANSPARENT,        KC_TRANSPARENT,  KC_TRANSPARENT,
-                                                                                                                                     KC_TRANSPARENT,        KC_TRANSPARENT,
-                                                                                                  KC_TRANSPARENT,  KC_TRANSPARENT,   KC_TRANSPARENT,        KC_TRANSPARENT,  KC_TRANSPARENT, KC_TRANSPARENT    
+                                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT,        KC_TRANSPARENT, KC_TRANSPARENT,
+                                                                                                                                    KC_TRANSPARENT,        KC_TRANSPARENT,
+                                                                                                  KC_TRANSPARENT,  KC_TRANSPARENT,  KC_TRANSPARENT,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
 
   [SYMBOLS] = LAYOUT_pretty(
@@ -102,9 +102,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_CAPS,        KC_LBRACKET,    KC_LABK,        KC_RABK,        KC_RBRACKET,    KC_GRAVE,                                                                                                               KC_TILD,        KC_LCBR,        KC_LPRN,        KC_RPRN,        KC_RCBR,        KC_TRANSPARENT,
     KC_TRANSPARENT, KC_PERC,        KC_ASTR,        KC_HASH,        KC_AT,          KC_TRANSPARENT,                                                                                                         KC_TRANSPARENT, KC_PIPE,        KC_AMPR,        KC_BSLASH,      KC_SLASH,       KC_TRANSPARENT,
                     KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                                                                                                                  KC_NO,          KC_NO,          KC_NO,          KC_NO,
-                                                                                                                    KC_TRANSPARENT,  KC_TRANSPARENT,        KC_TRANSPARENT,  KC_TRANSPARENT,
-                                                                                                                                     KC_TRANSPARENT,        KC_TRANSPARENT,
-                                                                                                  KC_TRANSPARENT,  KC_TRANSPARENT,   KC_TRANSPARENT,        KC_TRANSPARENT,  KC_TRANSPARENT, KC_TRANSPARENT
+                                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT,        KC_TRANSPARENT, KC_TRANSPARENT,
+                                                                                                                                    KC_TRANSPARENT,        KC_TRANSPARENT,
+                                                                                                  KC_TRANSPARENT,  KC_TRANSPARENT,  KC_TRANSPARENT,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
 
   [NUMBERS] = LAYOUT_pretty(
@@ -114,9 +114,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT,MT(MOD_LCTL,KC_F5),MT(MOD_LALT,KC_F6),MT(MOD_LSFT,KC_F7),MT(MOD_LGUI,KC_F8),KC_HYPR,                                                                               ALL_T(KC_KP_ASTERISK),MT(MOD_RGUI, KC_4),MT(MOD_RSFT, KC_5),MT(MOD_RALT,KC_6),MT(MOD_RSFT,KC_KP_PLUS),KC_NO,
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_MEH,                                                                                                                 MEH_T(KC_EQUAL),KC_1,           KC_2,           KC_3,           KC_ENTER,       KC_NO,
                     KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                                                                                                                  KC_0,           KC_NO,          KC_DOT,         KC_ENTER,
-                                                                                                                    KC_TRANSPARENT,  KC_TRANSPARENT,        KC_TRANSPARENT,  KC_TRANSPARENT,
-                                                                                                                                     KC_TRANSPARENT,        KC_TRANSPARENT,
-                                                                                                  KC_TRANSPARENT,  KC_TRANSPARENT,   KC_TRANSPARENT,        KC_TRANSPARENT,  KC_TRANSPARENT, KC_TRANSPARENT    
+                                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT,        KC_TRANSPARENT, KC_TRANSPARENT,                   
+                                                                                                                                    KC_TRANSPARENT,        KC_TRANSPARENT,                                   
+                                                                                                  KC_TRANSPARENT,  KC_TRANSPARENT,  KC_TRANSPARENT,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT       
   ),
 
 };
