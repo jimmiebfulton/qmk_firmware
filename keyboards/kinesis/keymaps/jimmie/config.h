@@ -5,7 +5,6 @@
 
 // place overrides here
 #define IGNORE_MOD_TAP_INTERRUPT
-#define TAPPING_FORCE_HOLD_PER_KEY
-#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+#define TAPPING_FORCE_HOLD
 
 #endif
