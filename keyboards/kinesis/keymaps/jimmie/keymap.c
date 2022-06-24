@@ -120,3 +120,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
 };
+
+bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+//        case LT(SYMBOLS,KC_BSPC):
+//            return true;
+//        case LT(NAVIGATION,KC_DEL):
+//            return true;
+//        case LT(NUMBERS,KC_ENTER):
+//            return true;
+        case LT(SYMBOLS,KC_SPC):
+            return true;
+        default:
+            return false;
+    }
+}
